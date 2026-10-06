@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daftar Tugas</title>
+    <meta name="description" content="Aplikasi daftar tugas sederhana yang tersimpan otomatis di browser." />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✅</text></svg>" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="kartu">
+      <header class="kepala">
+        <h1>Daftar Tugas</h1>
+        <p class="subjudul">Catat hal yang perlu kamu kerjakan. Semuanya tersimpan otomatis di browser ini.</p>
+      </header>
+
+      <form id="form-tambah" class="form-tambah" autocomplete="off">
+        <label for="input-tugas" class="sr-only">Tugas baru</label>
+        <input id="input-tugas" type="text" placeholder="Mau mengerjakan apa?" maxlength="200" required />
+        <button type="submit">Tambah</button>
+      </form>
+
+      <div id="alat" class="alat" role="group" aria-label="Saring tugas" hidden>
+        <button type="button" data-filter="semua" aria-pressed="true">Semua</button>
+        <button type="button" data-filter="aktif" aria-pressed="false">Aktif</button>
+        <button type="button" data-filter="selesai" aria-pressed="false">Selesai</button>
+      </div>
+
+      <ul id="daftar" class="daftar" aria-label="Daftar tugas"></ul>
+      <p id="kosong" class="kosong">Belum ada tugas. Tambahkan tugas pertamamu di atas!</p>
+
+      <footer id="kaki" class="kaki" hidden>
+        <span id="sisa" aria-live="polite"></span>
+        <button type="button" id="hapus-selesai" class="tombol-sekunder">Hapus yang selesai</button>
+      </footer>
+    </main>
+
+    <noscript><p class="kosong">Aplikasi ini membutuhkan JavaScript. Aktifkan JavaScript di browser kamu.</p></noscript>
+
+    <script src="src/todo.js"></script>
+    <script src="src/app.js"></script>
+  </body>
+</html>

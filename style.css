@@ -1,0 +1,262 @@
+:root {
+  --latar: #f4f5f7;
+  --kartu: #ffffff;
+  --teks: #1d2433;
+  --teks-redup: #5b6475;
+  --garis: #dfe3ea;
+  --aksen: #2f6fde;
+  --aksen-teks: #ffffff;
+  --aksen-lembut: #e6eefc;
+  --bahaya: #c23b3b;
+  --bayangan: 0 10px 30px rgba(20, 30, 60, 0.08);
+  --radius: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --latar: #12151c;
+    --kartu: #1b2029;
+    --teks: #e6e9ef;
+    --teks-redup: #9aa3b2;
+    --garis: #2d3441;
+    --aksen: #6c9cff;
+    --aksen-teks: #0d1220;
+    --aksen-lembut: #233250;
+    --bahaya: #ff7b7b;
+    --bayangan: 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 48px 16px;
+  background: var(--latar);
+  color: var(--teks);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.kartu {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 28px;
+  background: var(--kartu);
+  border-radius: var(--radius);
+  box-shadow: var(--bayangan);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.subjudul {
+  margin: 4px 0 20px;
+  color: var(--teks-redup);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Kontrol umum ---------- */
+
+button,
+input[type='text'] {
+  font: inherit;
+  color: inherit;
+}
+
+input[type='text'] {
+  min-width: 0;
+  padding: 10px 12px;
+  background: var(--kartu);
+  border: 1px solid var(--garis);
+  border-radius: 8px;
+}
+
+input[type='text']:focus-visible,
+button:focus-visible,
+input[type='checkbox']:focus-visible {
+  outline: 2px solid var(--aksen);
+  outline-offset: 2px;
+}
+
+button {
+  padding: 10px 16px;
+  background: var(--aksen);
+  color: var(--aksen-teks);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.tombol-sekunder {
+  background: transparent;
+  color: var(--teks);
+  border-color: var(--garis);
+}
+
+/* ---------- Form tambah ---------- */
+
+.form-tambah {
+  display: flex;
+  gap: 8px;
+}
+
+.form-tambah input {
+  flex: 1;
+}
+
+/* ---------- Filter ---------- */
+
+.alat {
+  display: flex;
+  gap: 6px;
+  margin-top: 20px;
+}
+
+.alat button {
+  padding: 6px 12px;
+  background: transparent;
+  color: var(--teks-redup);
+  border-color: var(--garis);
+  font-size: 0.9rem;
+}
+
+.alat button[aria-pressed='true'] {
+  background: var(--aksen-lembut);
+  color: var(--teks);
+  border-color: var(--aksen);
+}
+
+/* ---------- Daftar ---------- */
+
+.daftar {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tugas {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 4px;
+  border-bottom: 1px solid var(--garis);
+}
+
+.tugas input[type='checkbox'] {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--aksen);
+  cursor: pointer;
+}
+
+.tugas .teks {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.tugas.selesai .teks {
+  color: var(--teks-redup);
+  text-decoration: line-through;
+}
+
+.tugas .ikon {
+  flex: none;
+  padding: 4px 8px;
+  background: transparent;
+  border-color: transparent;
+  line-height: 1;
+}
+
+.tugas .ikon:hover {
+  background: var(--aksen-lembut);
+}
+
+.tugas .ikon[data-role='hapus']:hover {
+  border-color: var(--bahaya);
+}
+
+.form-ubah {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.form-ubah .input-ubah {
+  flex: 1 1 140px;
+}
+
+.form-ubah button {
+  padding: 8px 12px;
+}
+
+.kosong {
+  margin: 20px 0 4px;
+  text-align: center;
+  color: var(--teks-redup);
+}
+
+/* ---------- Kaki ---------- */
+
+.kaki {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  color: var(--teks-redup);
+  font-size: 0.9rem;
+}
+
+.kaki button {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+
+/* ---------- Layar kecil ---------- */
+
+@media (max-width: 480px) {
+  body {
+    padding: 16px;
+  }
+
+  .kartu {
+    padding: 20px 16px;
+  }
+
+  .form-tambah button {
+    padding: 10px 12px;
+  }
+}

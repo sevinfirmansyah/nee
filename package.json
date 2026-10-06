@@ -1,0 +1,12 @@
+{
+  "name": "nee",
+  "version": "1.0.0",
+  "description": "Aplikasi daftar tugas sederhana dengan HTML, CSS, dan JavaScript murni.",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
